@@ -99,6 +99,9 @@ for i=1:length(data.times)
     t=data.times(i);
     s=exp((-1*as*t)/tau);
     stime=[stime s];
+end
+
+for i=1:length(data.times)-1
     % fdemonstration=ftarget in time
     % glatzMaster page 9 . formula 2.4
     ftarget_x(i)= (-1*K*(gx-x(i))+D*dx(i)+tau*ddx(i))/(gx-x0);
@@ -128,7 +131,7 @@ end
 for i=1:ng
     psV_x=[];   
     psV_y=[];   
-    for j=1:length(data.times)
+    for j=1:length(data.times)-1
           psV_x=[psV_x psiF(h,c,stime(j)/d(1),i)];
           psV_y=[psV_y psiF(h,c,stime(j)/d(1),i)];
     end
